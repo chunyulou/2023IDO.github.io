@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>2023年台北場精彩回顧 - 正覺教師研習營</title>
+    <!--其他樣式-->
+    <style>
+        .sppb-img-responsive {
+            width: 250px;
+            padding-left: 40%;
+            margin: 10px;
+        }
+
+        h1 {
+            display: block;
+            width: auto;
+            margin: 5% 25% 5% 30%;
+
+        }
+
+        .intro {
+            width: 80%;
+            text-align: center;
+            margin-left: 10%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: green;
+            padding: 5px;
+            width: 80%;
+            border-radius: 50px 0 50px 0;
+            margin-left: 10%;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            display: none;
+        }
+
+        nav li {
+            display: inline;
+        }
+
+        nav a:hover ul {
+            display: block;
+            background-color: aquamarine;
+        }
+
+        nav ul li:hover {
+            background-color: aquamarine;
+            ;
+            /* 滑鼠懸停時改變背景色 */
+        }
+    </style>
+
+
+
+
+
+    <!--我願意左框樣式-->
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80vw;
+            margin: 0% 20% 0% 10%;
+        }
+
+        .IDoLeft {
+
+            width: 800px;
+            height: 450px;
+            background: #FFF;
+        }
+
+        .main-image {
+            position: relative;
+        }
+
+        .blinking-icons {
+            position: absolute;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+        }
+
+        .modal {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+
+
+
+
+        #modal-video,
+        #modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            /* 讓影片或圖片寬度自適應 */
+            height: auto;
+            /* 讓影片或圖片高度自適應 */
+            margin: 0 auto;
+            display: block;
+        }
+
+        .modal-content {
+            margin: 5% auto;
+            padding: 20px;
+            background: #fff;
+            position: relative;
+            text-align: center;
+        }
+
+        .close {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .blinking-icons img {
+            width: 35px;
+        }
+
+        /* Set different positions for each icon */
+        .blinking-icons:nth-child(1) {
+            top: 300px;
+            left: 100px;
+        }
+
+        .blinking-icons:nth-child(1)::after {
+            content: "點我";
+            display: block;
+            font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+            color: aliceblue;
+            line-height: 1px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+
+
+        .blinking-icons:nth-child(2) {
+            top: 280px;
+            left: 200px;
+        }
+
+        .blinking-icons:nth-child(2)::after {
+            content: "點我";
+            display: block;
+            font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+            color: aliceblue;
+            line-height: 10px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+
+        .blinking-icons:nth-child(3) {
+            top: 260px;
+            left: 155px;
+        }
+
+        .blinking-icons:nth-child(4) {
+            top: 307px;
+            left: 131px;
+        }
+
+        .blinking-icons:nth-child(5) {
+            top: 251px;
+            left: 630px;
+
+        }
+
+        .blinking-icons:nth-child(5)::after {
+            content: "點我";
+            display: block;
+            font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+            color: aliceblue;
+            line-height: 1px;
+            font-weight: 800;
+        }
+
+        .blinking-icons:nth-child(6) {
+            top: 225px;
+            left: 711px;
+        }
+
+        .blinking-icons:nth-child(7) {
+            top: 323px;
+            left: 600px;
+        }
+
+        .blinking-icons:nth-child(8) {
+            top: 230px;
+            left: 20px;
+        }
+
+        .blinking-icons:nth-child(9) {
+            top: 222px;
+            left: 540px;
+        }
+
+        .blinking-icons:nth-child(10) {
+            top: 222px;
+            left: 390px;
+        }
+
+        .blinking-icons:nth-child(10)::after {
+            content: "點我";
+            display: block;
+            font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+            color: aliceblue;
+            line-height: 8px;
+            font-weight: 800;
+        }
+
+        .blinking-icons:nth-child(11) {
+            top: 240px;
+            left: 260px;
+        }
+
+        .blinking-icons:nth-child(12) {
+            top: 280px;
+            left: 60px;
+        }
+
+        .blinking-icons:nth-child(13) {
+            top: 256px;
+            left: 480px;
+        }
+
+
+        .blinking-icons:nth-child(14) {
+            top: 290px;
+            left: 720px;
+        }
+
+        .blinking-icons:nth-child(14)::after {
+            content: "點我";
+            display: block;
+            font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+            color: aliceblue;
+            line-height: 0px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .blinking-icons:nth-child(15) {
+            top: 212px;
+            left: 120px;
+        }
+
+        .blinking-icons:nth-child(16) {
+            top: 325px;
+            left: 50px;
+        }
+
+        .blinking-icons:nth-child(16)::after {
+            content: "點我";
+            display: block;
+            font-family: "Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
+            color: aliceblue;
+            line-height: 1px;
+            font-weight: 800;
+        }
+
+        @keyframes blink-large {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes blink-small {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .large-blinking {
+            animation: blink-large 5s infinite;
+        }
+
+
+        .small-blinking {
+            animation: blink-small 1s infinite;
+        }
+
+        .large-scale img {
+            width: 50px;
+        }
+
+        .medium-scale img {
+            width: 25px;
+        }
+    </style>
+    <!--我願意右框樣式-->
+    <style>
+        .IDoRight {
+
+            width: 300px;
+        }
+
+        #image-frame {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            margin: 20px auto;
+        }
+
+        #image-frame img{
+            width:300px;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .like-btn {
+
+            cursor: pointer;
+            color: red;
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            z-index: 2;
+        }
+
+        #left-arrow {
+            left: 10px;
+            color: #ccc;
+        }
+
+        #right-arrow {
+            right: 10px;
+            color: #ccc;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <img class="sppb-img-responsive" src="./2018年台北場精彩回顧 - 正覺教師研習營_files/logo.png" alt="logo.png" title="">
+    <nav>
+        <a href="#">首頁</a>
+        <a href="#">教研營活動
+            <ul>
+                <li><a href="#">2024年1月教研營活動</a></li>
+                <li><a href="#">2023台北場精彩回顧</a></li>
+                <li><a href="#">2023台中場精彩回顧</a></li>
+            </ul>
+        </a>
+        <a href="#">徵文辦法</a>
+        <a href="#">話說從頭</a>
+        <a href="#">我願意</a>
+        <a href="#">教戰手冊</a>
+        <a href="#">邀約申請</a>
+    </nav>
+
+    <h1>2023 教師研習營（台北場）精彩回顧<br>
+        「生命的圓滿－尋覓教師的春天」</h1>
+    <section class="intro">
+        <p>演唱會傳說堅決而已下午精神之中是不是過了友情，姐姐招生緊緊之間從來沒努力各級早就，曝光一絲信用我要構成攻擊出了原理長度指定除了氣氛練習相冊，打電話新增所以金屬期間，新聞特殊網址選手持續帳號找不到先進性，一週對他屬於他們的一旦三大成人，是個靈魂孤獨教材，母親利益會不會一遍物流只不過安排發送書庫，內容簡介上傳主流反對休息本地，容易模糊一位他就過來開發一是窗口辛苦適用接着，黃金西方黃金，環境支付進一步畢業生，瞭解告訴我驚訝金屬瘋狂一樣完美走了你還成為，軍事本帖一點財富原本本地下載，會計都是房東禮品歡迎共同，測試回家圍繞怎樣鼓勵下載亞洲發達點頭同步平靜，初步學院證明靈魂，更加無關，男子很好大概最新接。
+        </p>
+    </section>
+
+    <!--我願意左+右框-->
+    <div class="container">
+        <!--我願意左框-->
+        <section class="IDoLeft">
+            <div class="main-image">
+                <img src="public/images/background.png" alt="Main Image">
+                <div class="blinking-icons small-blinking large-scale" onclick="openImage('image1.png')">
+                    <img src="public/images/heart.png" alt="Icon 1">
+                </div>
+                <div class="blinking-icons large-blinking medium-scale" onclick="openVideo('video1.mp4')">
+                    <img src="public/images/play.png" alt="Icon 2">
+                </div>
+                <div class="blinking-icons" onclick="openVideo('video2.mp4')">
+                    <img src="public/images/play.png" alt="Icon 3">
+                </div>
+                <div class="blinking-icons " onclick="openVideo('video3.mp4')">
+                    <img src="public/images/play.png" alt="Icon 4">
+                </div>
+                <div class="blinking-icons medium-scale" onclick="openImage('image2.png')">
+                    <img src="public/images/heart.png" alt="Icon 5">
+                </div>
+                <div class="blinking-icons large-scale" onclick="openImage('image3.png')">
+                    <img src="public/images/heart.png" alt="Icon 6">
+                </div>
+                <div class="blinking-icons" onclick="openImage('image4.png')">
+                    <img src="public/images/heart.png" alt="Icon 7">
+                </div>
+                <div class="blinking-icons  small-blinking" onclick="openImage('image5.png')">
+                    <img src="public/images/heart.png" alt="Icon 8">
+                </div>
+                <div class="blinking-icons  medium-blinking" onclick="openImage('image6.png')">
+                    <img src="public/images/heart.png" alt="Icon 9">
+                </div>
+                <div class="blinking-icons medium-scale" onclick="openImage('image7.png')">
+                    <img src="public/images/heart.png" alt="Icon 10">
+                </div>
+                <div class="blinking-icons medium-scale" onclick="openImage('image8.png')">
+                    <img src="public/images/heart.png" alt="Icon 11">
+                </div>
+                <div class="blinking-icons  small-blinking" onclick="openImage('image9.png')">
+                    <img src="public/images/heart.png" alt="Icon 12">
+                </div>
+                <div class="blinking-icons large-blinking large-scale" onclick="openVideo('video4.mp4')">
+                    <img src="public/images/play.png" alt="Icon 13">
+                </div>
+                <div class="blinking-icons  small-blinking" onclick="openImage('image10.png')">
+                    <img src="public/images/heart.png" alt="Icon 14">
+                </div>
+                <div class="blinking-icons large-blinking" onclick="openVideo('video5.mp4')">
+                    <img src="public/images/play.png" alt="Icon 15">
+                </div>
+            </div>
+
+            <div id="video-modal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <video controls id="modal-video">
+                    <!-- Video source goes here -->
+                    <source src="public/video/video1.mp4" type="video/mp4">
+                    <source src="public/video/video2.mp4" type="video/mp4">
+                    <source src="public/video/video3.mp4" type="video/mp4">
+                    <source src="public/video/video4.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div id="image-modal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="modal-image" alt="Modal Image">
+            </div>
+
+
+
+        </section>
+        <!--我願意右框-->
+        <section class="IDoRight">
+            <div id="image-frame">
+                <div class="arrow" id="left-arrow" onclick="prevSlide()">&#9665;</div>
+
+                
+                <div class="arrow" id="right-arrow" onclick="nextSlide()">&#9655;</div>
+            </div>
+        </section>
+    </div>
+
+    <!--我願意左框互動-->
+    <script>
+        let currentModal = null;
+        function openVideo(videoSrc) {
+            // 关闭当前打开的模态框
+            if (currentModal) {
+                currentModal.style.display = 'none';
+            }
+
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('modal-video');
+            const videoSource = document.querySelector('#modal-video source');
+
+            videoSource.src = "public/video/" + videoSrc;
+            video.load();
+
+            // Calculate the position to center the modal within IDoLeft
+            const idoLeft = document.querySelector('.IDoLeft');
+            const idoLeftRect = idoLeft.getBoundingClientRect();
+            const modalWidth = modal.offsetWidth;
+            const modalHeight = modal.offsetHeight;
+            const topPosition = idoLeftRect.top + window.scrollY + (idoLeftRect.height - modalHeight) / 2;
+            const leftPosition = idoLeftRect.left + window.scrollX + (idoLeftRect.width - modalWidth) / 2;
+
+            modal.style.top = `${topPosition}px`;
+            modal.style.left = `${leftPosition}px`;
+
+            modal.style.display = 'block';
+            video.play();
+
+            // 更新当前模态框
+            currentModal = modal;
+        }
+
+        function openImage(imageSrc) {
+
+            // 关闭当前打开的模态框
+            if (currentModal) {
+                currentModal.style.display = 'none';
+            }
+
+            const modal = document.getElementById('image-modal');
+            const image = document.getElementById('modal-image');
+
+            // Calculate the position to center the modal within IDoLeft
+            const idoLeft = document.querySelector('.IDoLeft');
+            const idoLeftRect = idoLeft.getBoundingClientRect();
+            const modalWidth = modal.offsetWidth;
+            const modalHeight = modal.offsetHeight;
+            const topPosition = idoLeftRect.top + window.scrollY + (idoLeftRect.height - modalHeight) / 2;
+            const leftPosition = idoLeftRect.left + window.scrollX + (idoLeftRect.width - modalWidth) / 2;
+
+            modal.style.top = `${topPosition}px`;
+            modal.style.left = `${leftPosition}px`;
+
+            modal.style.display = 'block';
+            image.src = "public/images/" + imageSrc;
+
+            // 更新当前模态框
+            currentModal = modal;
+        }
+
+
+        function closeModal() {
+            const modals = document.querySelectorAll('.modal');
+
+            // 关闭模态框并停止视频播放
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+                if (modal.id === 'video-modal') {
+                    const video = document.getElementById('modal-video');
+                    video.pause();
+                }
+            });
+
+            // 重置当前模态框
+            currentModal = null;
+        }
+
+
+
+
+
+
+    </script>
+    <!--我願意右框互動-->
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const totalSlides = 27; // 修改为实际的数量
+        const imageFrame = document.getElementById("image-frame");
+
+        for (let i = 1; i <= totalSlides; i++) {
+            const slide = document.createElement("div");
+            slide.className = "slide";
+            slide.id = "slide" + i;
+
+            const image = document.createElement("img");
+            image.src = "public/images/image" + i + ".png";
+            image.alt = "Image " + i;
+
+            const likeBtn = document.createElement("p");
+            likeBtn.className = "like-btn";
+            likeBtn.onclick = function () {
+                likeImage(i);
+            };
+            likeBtn.innerHTML = '❤️ <span id="like-count-' + i + '">0</span>';
+
+            slide.appendChild(image);
+            slide.appendChild(likeBtn);
+
+            imageFrame.appendChild(slide);
+        }
+    });
+
+    function likeImage(slideNumber) {
+        const likeCountSpan = document.getElementById("like-count-" + slideNumber);
+        let likes = parseInt(localStorage.getItem("likes-" + slideNumber)) || 0;
+
+        // 增加点赞数量
+        likes++;
+        localStorage.setItem("likes-" + slideNumber, likes);
+
+        // 更新 UI 中的点赞数量
+        likeCountSpan.innerText = likes;
+    }
+
+
+    </script>
+</body>
+
+</html>
